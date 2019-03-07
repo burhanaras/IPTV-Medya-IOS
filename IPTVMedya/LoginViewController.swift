@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+  
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var loginButton: UIButton!
@@ -24,7 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     usernameTextField.returnKeyType = .next
     passwordTextField.returnKeyType = .done
   }
-
+  
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     if textField == usernameTextField{
       usernameTextField.resignFirstResponder()
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     return true
   }
-
+  
   @IBAction func onClick_LoginButton(_ sender: Any) {
     login()
   }
@@ -55,6 +55,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert(message: "Kullanıcı adı ve şifre boş bırakılamaz.")
       }
     }
+    
+    
+    if let url = URL(string: "http://goldiptv24.com:80/get.php?username=09e4OjOH4N&password=2X93EHak91&type=m3u_plus&output=ts") {
+      do {
+        let contents = try String(contentsOf: url)
+    //    print(contents)
+        let parser = M3UParser()
+        let categories = parser.parse2(contentsOfFile: contents)
+        print("We have \(categories.count) categories here")
+        for category in categories{
+          print("\(String(describing: category.name)) has \(category.playListItems.count) items")
+        }
+      } catch {
+        print("contents could not be loaded")
+         alert(message: "Kullanıcı adı ve şifre hatalı.")
+      }
+    } else {
+      print("the URL was bad!")
+       alert(message: "Kullanıcı adı ve şifre hatalı.")
+    }
+    
+    
   }
   
   func alert(message: String){

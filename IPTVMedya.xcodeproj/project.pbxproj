@@ -13,6 +13,10 @@
 		C20B8854222EB8FB007BDBF4 /* IPTVMedya.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C20B8852222EB8FB007BDBF4 /* IPTVMedya.xcdatamodeld */; };
 		C20B8856222EB8FC007BDBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20B8855222EB8FC007BDBF4 /* Assets.xcassets */; };
 		C20B8859222EB8FC007BDBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20B8857222EB8FC007BDBF4 /* LaunchScreen.storyboard */; };
+		C23C96132231679E00BDCDD8 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C96122231679E00BDCDD8 /* Downloader.swift */; };
+		C23C96162231734700BDCDD8 /* M3UItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C96152231734700BDCDD8 /* M3UItem.swift */; };
+		C23C96182231737E00BDCDD8 /* M3UPlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C96172231737E00BDCDD8 /* M3UPlayList.swift */; };
+		C23C961A223173DD00BDCDD8 /* M3UParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9619223173DD00BDCDD8 /* M3UParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		C20B8855222EB8FC007BDBF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C20B8858222EB8FC007BDBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C20B885A222EB8FC007BDBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C23C96122231679E00BDCDD8 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		C23C96152231734700BDCDD8 /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
+		C23C96172231737E00BDCDD8 /* M3UPlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UPlayList.swift; sourceTree = "<group>"; };
+		C23C9619223173DD00BDCDD8 /* M3UParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		C20B884A222EB8FB007BDBF4 /* IPTVMedya */ = {
 			isa = PBXGroup;
 			children = (
+				C23C96142231732400BDCDD8 /* m3u */,
 				C20B884B222EB8FB007BDBF4 /* AppDelegate.swift */,
 				C20B884D222EB8FB007BDBF4 /* LoginViewController.swift */,
 				C20B884F222EB8FB007BDBF4 /* Main.storyboard */,
@@ -63,8 +72,19 @@
 				C20B8857222EB8FC007BDBF4 /* LaunchScreen.storyboard */,
 				C20B885A222EB8FC007BDBF4 /* Info.plist */,
 				C20B8852222EB8FB007BDBF4 /* IPTVMedya.xcdatamodeld */,
+				C23C96122231679E00BDCDD8 /* Downloader.swift */,
 			);
 			path = IPTVMedya;
+			sourceTree = "<group>";
+		};
+		C23C96142231732400BDCDD8 /* m3u */ = {
+			isa = PBXGroup;
+			children = (
+				C23C96152231734700BDCDD8 /* M3UItem.swift */,
+				C23C96172231737E00BDCDD8 /* M3UPlayList.swift */,
+				C23C9619223173DD00BDCDD8 /* M3UParser.swift */,
+			);
+			path = m3u;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23C961A223173DD00BDCDD8 /* M3UParser.swift in Sources */,
 				C20B8854222EB8FB007BDBF4 /* IPTVMedya.xcdatamodeld in Sources */,
 				C20B884E222EB8FB007BDBF4 /* LoginViewController.swift in Sources */,
+				C23C96132231679E00BDCDD8 /* Downloader.swift in Sources */,
+				C23C96182231737E00BDCDD8 /* M3UPlayList.swift in Sources */,
+				C23C96162231734700BDCDD8 /* M3UItem.swift in Sources */,
 				C20B884C222EB8FB007BDBF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
