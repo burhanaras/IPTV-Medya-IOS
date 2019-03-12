@@ -29,6 +29,7 @@
                                 <rect key="frame" x="16" y="273" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ahl-Rd-P6G"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ivq-Z9-teR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -95,6 +96,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="22t-X6-orA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8iS-SB-pCn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sqo-nv-EsH" secondAttribute="trailing" constant="16" id="AJG-V3-NJr"/>
                             <constraint firstItem="jGW-ox-BI0" firstAttribute="trailing" secondItem="tqb-q0-en7" secondAttribute="trailing" id="CfZ-hM-ztk"/>
                             <constraint firstItem="wTf-Aa-HPG" firstAttribute="top" secondItem="31S-8s-Kl8" secondAttribute="bottom" constant="20" id="DtH-eE-HP6"/>
@@ -105,6 +107,7 @@
                             <constraint firstItem="sqo-nv-EsH" firstAttribute="top" secondItem="tqb-q0-en7" secondAttribute="bottom" constant="25" id="RG0-I5-m2K"/>
                             <constraint firstItem="22t-X6-orA" firstAttribute="centerX" secondItem="jGW-ox-BI0" secondAttribute="centerX" id="ZBS-Y9-lXa"/>
                             <constraint firstItem="tqb-q0-en7" firstAttribute="top" secondItem="jGW-ox-BI0" secondAttribute="bottom" constant="18" id="Zcc-LP-IjO"/>
+                            <constraint firstItem="22t-X6-orA" firstAttribute="top" secondItem="a9J-Ug-5yy" secondAttribute="bottom" constant="27" id="aM0-lL-SMW"/>
                             <constraint firstItem="jGW-ox-BI0" firstAttribute="top" secondItem="22t-X6-orA" secondAttribute="bottom" constant="30" id="aNp-dN-0IS"/>
                             <constraint firstItem="wTf-Aa-HPG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c91-5D-1f9"/>
                             <constraint firstItem="22t-X6-orA" firstAttribute="top" secondItem="a9J-Ug-5yy" secondAttribute="bottom" constant="27" id="ffq-e9-krV"/>
@@ -115,6 +118,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wTf-Aa-HPG" secondAttribute="trailing" constant="16" id="qEX-6U-mgn"/>
                             <constraint firstItem="31S-8s-Kl8" firstAttribute="top" secondItem="sqo-nv-EsH" secondAttribute="bottom" constant="20" id="sdW-aR-U6k"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="31S-8s-Kl8" secondAttribute="trailing" constant="16" id="uVI-fP-jfm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="22t-X6-orA" secondAttribute="trailing" constant="16" id="wL8-WP-GIi"/>
                             <constraint firstItem="22t-X6-orA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="zQW-fW-fQp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -123,11 +127,149 @@
                         <outlet property="loginButton" destination="sqo-nv-EsH" id="xQu-Ok-isB"/>
                         <outlet property="passwordTextField" destination="tqb-q0-en7" id="u6Q-HW-iJv"/>
                         <outlet property="usernameTextField" destination="jGW-ox-BI0" id="wLh-tj-Ic9"/>
+                        <segue destination="JKm-kW-dwx" kind="show" identifier="gotocategories" id="Pkt-Wp-o9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Kategoriler-->
+        <scene sceneID="Ice-L1-vfr">
+            <objects>
+                <collectionViewController id="rs8-5K-Ezi" customClass="CategoriesCollectionViewController" customModule="IPTVMedya" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="V7g-BC-X2Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P2c-oK-kKT">
+                            <size key="itemSize" width="375" height="73"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellforcategory" id="rQk-yn-0y5" customClass="MyCollectionViewCell" customModule="IPTVMedya" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tv" translatesAutoresizingMaskIntoConstraints="NO" id="5xk-YG-eBY">
+                                            <rect key="frame" x="20" y="10" width="58" height="58"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeI-6T-6eY">
+                                            <rect key="frame" x="91" y="11" width="232" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGs-Np-agT">
+                                            <rect key="frame" x="91" y="39" width="232" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jrn-Jg-pP2" colorLabel="IBBuiltInLabel-Red">
+                                            <rect key="frame" x="0.0" y="69" width="375" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="countLabel" destination="xGs-Np-agT" id="wj5-Rl-xY3"/>
+                                    <outlet property="nameLabel" destination="LeI-6T-6eY" id="EcS-gc-VeZ"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="rs8-5K-Ezi" id="yFJ-P6-3km"/>
+                            <outlet property="delegate" destination="rs8-5K-Ezi" id="bQo-00-Jrb"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Kategoriler" id="1FT-wf-ZqU"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vD1-XH-lrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="133.5832083958021"/>
+        </scene>
+        <!--Category Detail Collection View Controller-->
+        <scene sceneID="43O-7e-Kj6">
+            <objects>
+                <collectionViewController storyboardIdentifier="categoryDetailVC" id="VFI-TK-liS" customClass="CategoryDetailCollectionViewController" customModule="IPTVMedya" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tpQ-p9-bsr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0vk-c5-aCh">
+                            <size key="itemSize" width="375" height="73"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellForCategoryDetail" id="grE-8l-VxG" customClass="CategoryDetailViewCell" customModule="IPTVMedya" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tv" translatesAutoresizingMaskIntoConstraints="NO" id="69U-FR-70V">
+                                            <rect key="frame" x="20" y="10" width="58" height="58"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhc-eu-niQ">
+                                            <rect key="frame" x="94" y="24" width="281" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcJ-f8-1ww" colorLabel="IBBuiltInLabel-Red">
+                                            <rect key="frame" x="0.0" y="68" width="375" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="titleLabel" destination="rhc-eu-niQ" id="suS-qT-as0"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="VFI-TK-liS" id="CoF-FP-y73"/>
+                            <outlet property="delegate" destination="VFI-TK-liS" id="ZFh-um-shj"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXV-30-2WQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2701.5999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r3l-qX-RsF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JKm-kW-dwx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vhs-8l-Cc6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rs8-5K-Ezi" kind="relationship" relationship="rootViewController" id="PU3-1b-fbv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4gR-a5-Kj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.79999999999995" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
@@ -135,6 +277,7 @@
         <image name="iptvmedya" width="1024" height="1024"/>
         <image name="skype" width="512" height="512"/>
         <image name="speed" width="100" height="100"/>
+        <image name="tv" width="100" height="100"/>
         <image name="web" width="100" height="100"/>
         <image name="whatsapp" width="512" height="512"/>
     </resources>

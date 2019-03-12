@@ -14,6 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var loginButton: UIButton!
   
+  fileprivate var categories = [M3UPlayList]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -60,20 +61,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     if let url = URL(string: "http://goldiptv24.com:80/get.php?username=09e4OjOH4N&password=2X93EHak91&type=m3u_plus&output=ts") {
       do {
         let contents = try String(contentsOf: url)
-    //    print(contents)
+        //    print(contents)
         let parser = M3UParser()
-        let categories = parser.parse2(contentsOfFile: contents)
+        categories = parser.parse2(contentsOfFile: contents)
         print("We have \(categories.count) categories here")
         for category in categories{
           print("\(String(describing: category.name)) has \(category.playListItems.count) items")
         }
+        CategoriesCollectionViewController.cats = categories
+        performSegue(withIdentifier: "gotocategories", sender: categories)
       } catch {
         print("contents could not be loaded")
-         alert(message: "Kullanıcı adı ve şifre hatalı.")
+        alert(message: "Kullanıcı adı ve şifre hatalı.")
       }
     } else {
       print("the URL was bad!")
-       alert(message: "Kullanıcı adı ve şifre hatalı.")
+      alert(message: "Kullanıcı adı ve şifre hatalı.")
     }
     
     
@@ -83,6 +86,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let alert = UIAlertController(title: "HATA", message: message, preferredStyle: UIAlertController.Style.alert)
     alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
     self.present(alert, animated: true, completion: nil)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let data = sender as! [M3UPlayList]
+    print("Data has \(data.count) items.")
+    
+    if segue.identifier == "goToCategoriesSegue" {
+      let destinationVC = segue.destination as! CategoriesCollectionViewController
+      destinationVC.categories = sender as! [M3UPlayList]
+
+    }
   }
   
 }
