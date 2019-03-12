@@ -21,6 +21,7 @@ class CategoryDetailCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
       navigationController?.navigationBar.prefersLargeTitles = true
+    
       self.navigationController?.navigationBar.backItem?.title = "Kategoriler"
       self.title = "IPTV Medya" // "\(String(describing: playlist?.name))"
         // Register cell classes
@@ -30,15 +31,22 @@ class CategoryDetailCollectionViewController: UICollectionViewController {
       print("We have \(String(describing: playlist?.playListItems.count))")
     }
 
-    /*
+  override func viewDidAppear(_ animated: Bool) {
+    self.navigationController?.navigationBar.isHidden = false
+  }
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+      if segue.identifier == "goToPlayer"{
+        let player = segue.destination as! PlayerViewController
+        player.m3uItem = sender as! M3UItem
+      }
     }
-    */
+ 
 
     // MARK: UICollectionViewDataSource
 
@@ -57,6 +65,10 @@ class CategoryDetailCollectionViewController: UICollectionViewController {
         return cell
     }
 
+  
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "goToPlayer", sender: playlist?.playListItems[indexPath.row])
+  }
     // MARK: UICollectionViewDelegate
 
     /*

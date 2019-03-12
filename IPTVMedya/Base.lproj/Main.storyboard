@@ -248,10 +248,36 @@
                             <outlet property="delegate" destination="VFI-TK-liS" id="ZFh-um-shj"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="ryP-6K-YWZ" kind="show" identifier="goToPlayer" id="2zR-e7-rBK"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXV-30-2WQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2701.5999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="QVh-ta-FqY">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="FrY-5D-YGv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3L0-Lg-KhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3408" y="133"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="C3M-Xe-zap">
+            <objects>
+                <viewController id="ryP-6K-YWZ" customClass="PlayerViewController" customModule="IPTVMedya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Qh-sZ-FSN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iN9-YX-2yl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPW-FV-t2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3849" y="807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r3l-qX-RsF">

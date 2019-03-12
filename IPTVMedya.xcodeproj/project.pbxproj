@@ -21,6 +21,7 @@
 		C23C961E2235A56A00BDCDD8 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C961D2235A56A00BDCDD8 /* MyCollectionViewCell.swift */; };
 		C28C5B3D2237FB55009CA7A6 /* CategoryDetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C5B3C2237FB55009CA7A6 /* CategoryDetailCollectionViewController.swift */; };
 		C28C5B4122380D32009CA7A6 /* CategoryDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C5B4022380D32009CA7A6 /* CategoryDetailViewCell.swift */; };
+		C28C5B4322381244009CA7A6 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C5B4222381244009CA7A6 /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		C23C961D2235A56A00BDCDD8 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C28C5B3C2237FB55009CA7A6 /* CategoryDetailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailCollectionViewController.swift; sourceTree = "<group>"; };
 		C28C5B4022380D32009CA7A6 /* CategoryDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewCell.swift; sourceTree = "<group>"; };
+		C28C5B4222381244009CA7A6 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				C23C961D2235A56A00BDCDD8 /* MyCollectionViewCell.swift */,
 				C28C5B3C2237FB55009CA7A6 /* CategoryDetailCollectionViewController.swift */,
 				C28C5B4022380D32009CA7A6 /* CategoryDetailViewCell.swift */,
+				C28C5B4222381244009CA7A6 /* PlayerViewController.swift */,
 			);
 			path = IPTVMedya;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				C20B8854222EB8FB007BDBF4 /* IPTVMedya.xcdatamodeld in Sources */,
 				C23C961E2235A56A00BDCDD8 /* MyCollectionViewCell.swift in Sources */,
 				C20B884E222EB8FB007BDBF4 /* LoginViewController.swift in Sources */,
+				C28C5B4322381244009CA7A6 /* PlayerViewController.swift in Sources */,
 				C23C96132231679E00BDCDD8 /* Downloader.swift in Sources */,
 				C23C961C2235A1D800BDCDD8 /* CategoriesCollectionViewController.swift in Sources */,
 				C23C96182231737E00BDCDD8 /* M3UPlayList.swift in Sources */,

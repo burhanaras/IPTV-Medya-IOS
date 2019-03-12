@@ -20,6 +20,7 @@ class CategoriesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
       navigationController?.navigationBar.prefersLargeTitles = true
+      
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,6 +33,10 @@ class CategoriesCollectionViewController: UICollectionViewController {
       print("We have \(CategoriesCollectionViewController.cats.count) cats")
     }
 
+  override func viewDidAppear(_ animated: Bool) {
+    self.navigationController?.navigationBar.isHidden = false
+  }
+  
     /*
     // MARK: - Navigation
 
