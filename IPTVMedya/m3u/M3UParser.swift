@@ -68,7 +68,7 @@ class M3UParser{
     
     var categories = [M3UPlayList]()
     for key in sortedKeys{
-      if playlists[key] != nil{
+      if key != "" && playlists[key] != nil{
         let category = M3UPlayList()
         category.name = key
         category.playListItems = playlists[key]!
