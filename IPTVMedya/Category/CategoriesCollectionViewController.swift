@@ -10,16 +10,30 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class CategoriesCollectionViewController: UICollectionViewController {
+class CategoriesCollectionViewController: UICollectionViewController, UISearchBarDelegate {
   
+  private var isSearchActive: Bool = false
   public var categories: [M3UPlayList] = [M3UPlayList]()
-  public static var cats = [M3UPlayList]()
+  public static var cats = [M3UPlayList](){
+    didSet{
+      filteredData = cats
+    }
+  }
+  public static var filteredData = [M3UPlayList]()
   fileprivate let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+  
+  lazy var searchBar:UISearchBar = UISearchBar()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationController?.navigationBar.prefersLargeTitles = true
+    searchBar.sizeToFit()
+    searchBar.placeholder = "Arama"
+    searchBar.delegate = self
+    var leftNavBarButton = UIBarButtonItem(customView:searchBar)
+    self.navigationItem.leftBarButtonItem = leftNavBarButton
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
@@ -51,7 +65,7 @@ class CategoriesCollectionViewController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of items
-    return CategoriesCollectionViewController.cats.count
+    return CategoriesCollectionViewController.filteredData.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,8 +73,8 @@ class CategoriesCollectionViewController: UICollectionViewController {
     
     // Configure the cell
     
-    cell.nameLabel.text = CategoriesCollectionViewController.cats[indexPath.row].name
-    cell.countLabel.text = String(describing: "Toplam Yayın Sayısı: \(CategoriesCollectionViewController.cats[indexPath.row].playListItems.count)")
+    cell.nameLabel.text = CategoriesCollectionViewController.filteredData[indexPath.row].name
+    cell.countLabel.text = String(describing: "Toplam Yayın Sayısı: \(CategoriesCollectionViewController.filteredData[indexPath.row].playListItems.count)")
     
     return cell
   }
@@ -68,7 +82,7 @@ class CategoriesCollectionViewController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard let categoryDetailVC = mainStoryboard.instantiateViewController(withIdentifier: "categoryDetailVC") as? CategoryDetailCollectionViewController else {return}
-    categoryDetailVC.playlist = CategoriesCollectionViewController.cats[indexPath.row]
+    categoryDetailVC.playlist = CategoriesCollectionViewController.filteredData[indexPath.row]
     navigationController?.pushViewController(categoryDetailVC, animated: true)
   }
   // MARK: UICollectionViewDelegate
@@ -102,4 +116,18 @@ class CategoriesCollectionViewController: UICollectionViewController {
    }
    */
   
+  //MARK: search bar
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    print("New text is \(searchText)")
+    CategoriesCollectionViewController.filteredData = CategoriesCollectionViewController.cats.filter { obj  in
+      return obj.name?.lowercased().contains(searchText.lowercased()) ?? false
+    }
+    
+    print("Search returned \(CategoriesCollectionViewController.filteredData.count) items.")
+    if searchText.isEmpty {
+      CategoriesCollectionViewController.filteredData = CategoriesCollectionViewController.cats
+    }
+    
+    collectionView.reloadData()
+  }
 }
