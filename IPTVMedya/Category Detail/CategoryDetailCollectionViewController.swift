@@ -31,23 +31,56 @@ class CategoryDetailCollectionViewController: UICollectionViewController, UISear
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
     
-    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationController?.navigationBar.prefersLargeTitles = false
     
     self.navigationController?.navigationBar.backItem?.title = "Kategoriler"
-    self.title = "IPTV Medya" // "\(String(describing: playlist?.name))"
+    self.title = playlist?.name // "IPTV Medya" // "\(String(describing: playlist?.name))"
     // Register cell classes
     self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     
     // Do any additional setup after loading the view.
     print("We have \(String(describing: playlist?.playListItems.count))")
+
     
+    var newBackButton = UIBarButtonItem(title: "Geri", style: .done, target: nil, action: nil)
+    self.navigationItem.backBarButtonItem = newBackButton
     
     searchBar.sizeToFit()
     searchBar.placeholder = "Arama"
     searchBar.delegate = self
     var leftNavBarButton = UIBarButtonItem(customView:searchBar)
-    self.navigationItem.leftBarButtonItem = leftNavBarButton
+    self.navigationItem.rightBarButtonItem = leftNavBarButton
+  
     
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar .resignFirstResponder()
+    searchBar.setShowsCancelButton(false, animated: true)
+  }
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    searchBar.setShowsCancelButton(true, animated: true)
+  }
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+    searchBar.setShowsCancelButton(false, animated: true)
+  }
+  
+  
+  func makeBackButton() -> UIButton {
+    let backButtonImage = UIImage(named: "backbutton")?.withRenderingMode(.alwaysTemplate)
+    let backButton = UIButton(type: .custom)
+    backButton.setImage(backButtonImage, for: .normal)
+    backButton.tintColor = .blue
+    backButton.setTitle("  Geri", for: .normal)
+    backButton.setTitleColor(.blue, for: .normal)
+    backButton.addTarget(self, action: #selector(self.backButtonPressed), for: .touchUpInside)
+    return backButton
+  }
+  
+  @objc func backButtonPressed() {
+    dismiss(animated: true, completion: nil)
+    //        navigationController?.popViewController(animated: true)
   }
   
   override func viewDidAppear(_ animated: Bool) {
