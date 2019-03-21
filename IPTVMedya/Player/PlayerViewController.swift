@@ -40,6 +40,8 @@ class PlayerViewController: UIViewController {
         controller.view.frame = self.view.frame
         self.view.addSubview(controller.view)
         self.addChild(controller)
+        
+      //  self.present(controller, animated: true, completion: nil)
         player.play()
       }
       
